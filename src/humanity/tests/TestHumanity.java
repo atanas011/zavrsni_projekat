@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import humanity.Utils;
 import humanity.models.Home;
 import humanity.models.Login;
+import humanity.models.Settings;
 import humanity.models.Staff;
 
 public class TestHumanity {
@@ -27,8 +28,8 @@ public class TestHumanity {
 	public static void set() {
 		driver.get(Home.URL);
 		driver.manage().window().maximize();
-		Home.xAnnouncement(driver);
-		Home.xCookies(driver);
+//		Home.xAnnouncement(driver);
+//		Home.xCookies(driver);
 //		Home.xBot(driver);
 		Utils.zoomOut();
 	}
@@ -43,7 +44,7 @@ public class TestHumanity {
 	@Test
 	/* Proveriti da li postojeci user moze uspesno da se loguje. */
 	public static void testLogin() {
-		Home.goToLogin(driver);
+//		Home.goToLogin(driver);
 		Login.login(driver);
 		Utils.sleep(2);
 //		String act = driver.getCurrentUrl();
@@ -82,22 +83,61 @@ public class TestHumanity {
 //		Utils.sleep(1);
 //	}
 	
-	@Test (priority = 1)
-	/* Dodati novog zaposlenog i proveriti uspesnost dodavanja. */
-	public static void testAddEmployee() {
-		driver.findElement(Staff.getStaffId()).click();
-		Utils.sleep(2);
-		Staff oldStaff = new Staff(driver);
+//	@Test (priority = 1)
+//	/* Dodati novog zaposlenog i proveriti uspesnost dodavanja. */
+//	public static void testAddEmployee() {
+//		driver.findElement(Staff.getStaffId()).click();
+//		Utils.sleep(2);  // mozda ovde implicitWait
+//		Staff oldStaff = new Staff(driver);
+////		System.out.println(oldStaff.getEmployees().size());
+//		Staff.addEmployee(driver);
+//		Utils.sleep(4);
+//		driver.findElement(Staff.getAllstaffLtxt()).click();
+//		Utils.sleep(2);
+//		Staff newStaff = new Staff(driver);
+////		System.out.println(newStaff.getEmployees().size());
+//		Assert.assertTrue(newStaff.getEmployees().size() == oldStaff.getEmployees().size() + 1);
+//	}
+	
+//	@Test (priority = 1)
+//	/* Dodati minimum 5 novih zaposlenih i proveriti uspesnost dodavanja. */
+//	public static void testAddEmployees() {
+//		driver.findElement(Staff.getStaffId()).click();
+//		Utils.sleep(2);
+//		Staff oldStaff = new Staff(driver);
 //		System.out.println(oldStaff.getEmployees().size());
-		Staff.addEmployee(driver);
-		Staff.save(driver);
-		Utils.sleep(2);
-		driver.findElement(Staff.getAllstaffLtxt()).click();
-		Utils.sleep(2);
-		Staff newStaff = new Staff(driver);
+//		int num = Staff.addEmployees(driver);
+//		Utils.sleep(4);
+//		driver.findElement(Staff.getAllstaffLtxt()).click();
+//		Utils.sleep(2);
+//		Staff newStaff = new Staff(driver);
 //		System.out.println(newStaff.getEmployees().size());
-		Assert.assertTrue(newStaff.getEmployees().size() == oldStaff.getEmployees().size() + 1);
+//		Assert.assertTrue(newStaff.getEmployees().size() == oldStaff.getEmployees().size() + num);
+//	}
+	
+//	@Test (priority = 1)
+//	/* Zaposlenom promeniti ime. Zaposlenom dodati fotografiju. */
+//	public static void testEditNameAndPic() {
+//		driver.findElement(Staff.getStaffId()).click();
+//		Utils.sleep(2);
+//		Staff.editNameAndPic(driver);
+//	}
+	
+	@Test (priority = 1)
+	/* Odcekirati (disable) notifikacije. */
+	public static void testChangeLang() {
+		Settings.uncheckNots(driver);
 	}
+	
+//	@Test (priority = 1)
+//	/* Promeniti jezik. */
+	/* OVO NE RADI NI RUCNO.*/
+//	public static void testChangeLang() {
+//		Settings.changeLang(driver);
+//	}
+	
+	/* Omoguciti da se barata podesavanjima profila (izmene po vasem izboru, najmanje 2). */
+	/* OVO JE OMOGUCENO PO DEFAULT-u. */
 	
 	@AfterSuite
 	public void tearDown() {

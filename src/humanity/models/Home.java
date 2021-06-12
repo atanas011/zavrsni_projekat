@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import humanity.Utils;
 
 public class Home {
-	
-	public static final String URL = "https://www.humanity.com/";
+	public static final String URL = "https://www.humanity.com/app";
+//	public static final String URL = "https://www.humanity.com/";
 	private static final String X_ANNOUNCEMENT_XPATH = "//*[@id=\"tcp-modal\"]/div/div/div[1]/button";
 	private static final String X_COOKIES_XPATH = "//*[@id=\"cf-root\"]/div/div/div/div[2]/div[2]/div[2]/button";
 //	private static final By BOT_XPATH = By.xpath("//*[@id=\"intercom-container\"]/div/div/div[1]");
