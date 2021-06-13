@@ -6,16 +6,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import humanity.Utils;
+
 public class Dashboard {
 	
 	private static String URL = "https://vitezkoja1.humanity.com/";
+	private static int date = Utils.getDate();
 	private static final String DASH_URL = URL + "app/dashboard/";
-	private static final String SHIFT_URL = URL + "app/schedule/employee/week/overview/overview/10%2c5%2c2021/";
+	private static final String SHIFT_URL = URL + "app/schedule/employee/week/overview/overview/" + date + "%2c5%2c2021/";
 	private static final String TIME_URL = URL + "app/timeclock/";
 	private static final String LEAVE_URL = URL + "app/requests/vacation/";
 	private static final String TRAINING_URL = URL + "app/training/";
 	private static final String STAFF_URL = URL + "app/staff/list/load/true/";
-	private static final String AVAILABILITY_URL = URL + "fe/availability/#/requests/week/2021-06-06/1";
+	private static final String AVAILABILITY_URL = URL + "fe/availability/#/requests/week/2021-06-13/1";
 	private static final String PAYROLL_URL = URL + "app/payroll/scheduled-hours/";
 	private static final String REPORTS_URL = URL + "app/reports/dashboard/";
 	private static final String SETTINGS_URL = URL + "app/admin/settings/";
